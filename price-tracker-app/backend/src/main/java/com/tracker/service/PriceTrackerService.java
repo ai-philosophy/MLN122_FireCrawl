@@ -90,7 +90,7 @@ public class PriceTrackerService {
         FALLBACK_DICT.put("Oppo Find X7 Ultra 256GB", new FallbackProductInfo("Oppo Find X7 Ultra 256GB", "Oppo", "Điện thoại", "24990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/303893/oppo-find-n3-110924-060845.jpg"));
         FALLBACK_DICT.put("Oppo Reno12 Pro 512GB", new FallbackProductInfo("Oppo Reno12 Pro 512GB", "Oppo", "Điện thoại", "16990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/323380/oppo-reno12-pro-110924-060845.jpg"));
         FALLBACK_DICT.put("Realme GT6 256GB", new FallbackProductInfo("Realme GT6 256GB", "Realme", "Điện thoại", "12990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/325785/realme-gt-6-110924-060845.jpg"));
-        FALLBACK_DICT.put("Vivo X100 Pro 512GB", new FallbackProductInfo("Vivo X100 Pro 512GB", "Vivo", "Điện thoại", "21990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/318042/vivo-v30-pro-110924-060845.jpg"));
+        FALLBACK_DICT.put("Vivo V30 Pro 512GB", new FallbackProductInfo("Vivo V30 Pro 512GB", "Vivo", "Điện thoại", "21990000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
         FALLBACK_DICT.put("Asus ROG Phone 8 Pro 512GB", new FallbackProductInfo("Asus ROG Phone 8 Pro 512GB", "Asus", "Điện thoại", "27990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/317540/asus-rog-phone-8-110924-060845.jpg"));
         FALLBACK_DICT.put("OnePlus 12 256GB", new FallbackProductInfo("OnePlus 12 256GB", "OnePlus", "Điện thoại", "18990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/317539/oneplus-12-110924-060845.jpg"));
         FALLBACK_DICT.put("iPhone 14 Pro Max 128GB", new FallbackProductInfo("iPhone 14 Pro Max 128GB", "Apple", "Điện thoại", "24990000", "https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/42/289700/iphone-14-pro-max-110923-110240.jpg"));
@@ -106,7 +106,7 @@ public class PriceTrackerService {
         FALLBACK_DICT.put("Logitech MX Master 3S Wireless", new FallbackProductInfo("Logitech MX Master 3S Wireless", "Logitech", "Chuột", "2490000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
         FALLBACK_DICT.put("Razer DeathAdder V3 Pro Wireless", new FallbackProductInfo("Razer DeathAdder V3 Pro Wireless", "Razer", "Chuột", "3490000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
         FALLBACK_DICT.put("Razer Basilisk V3 Pro Wireless", new FallbackProductInfo("Razer Basilisk V3 Pro Wireless", "Razer", "Chuột", "3990000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
-        FALLBACK_DICT.put("Razer Viper V3 HyperSpeed", new FallbackProductInfo("Razer Viper V3 HyperSpeed", "Razer", "Chuột", "1790000", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500"));
+        FALLBACK_DICT.put("Razer Viper V3 HyperSpeed Wireless", new FallbackProductInfo("Razer Viper V3 HyperSpeed Wireless", "Razer", "Chuột", "1790000", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500"));
         FALLBACK_DICT.put("Razer Orochi V2 Mobile Wireless", new FallbackProductInfo("Razer Orochi V2 Mobile Wireless", "Razer", "Chuột", "1490000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
         FALLBACK_DICT.put("Razer Cobra Pro Wireless", new FallbackProductInfo("Razer Cobra Pro Wireless", "Razer", "Chuột", "2990000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
         FALLBACK_DICT.put("Corsair Harpoon RGB Pro Wired", new FallbackProductInfo("Corsair Harpoon RGB Pro Wired", "Corsair", "Chuột", "450000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
@@ -119,8 +119,8 @@ public class PriceTrackerService {
         FALLBACK_DICT.put("Asus TUF Gaming M3 Gen II", new FallbackProductInfo("Asus TUF Gaming M3 Gen II", "Asus", "Chuột", "490000", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500"));
         FALLBACK_DICT.put("Dareu EM901X RGB Wireless", new FallbackProductInfo("Dareu EM901X RGB Wireless", "Dareu", "Chuột", "550000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
         FALLBACK_DICT.put("Dareu A950 Alcantara Tri-mode", new FallbackProductInfo("Dareu A950 Alcantara Tri-mode", "Dareu", "Chuột", "1090000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
-        FALLBACK_DICT.put("Glorious Model O Wireless Lightweight", new FallbackProductInfo("Glorious Model O Wireless Lightweight", "Glorious", "Chuột", "2190000", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500"));
-        FALLBACK_DICT.put("Glorious Model D Wireless Lightweight", new FallbackProductInfo("Glorious Model D Wireless Lightweight", "Glorious", "Chuột", "2190000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
+        FALLBACK_DICT.put("Glorious Model O Wireless", new FallbackProductInfo("Glorious Model O Wireless", "Glorious", "Chuột", "2190000", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500"));
+        FALLBACK_DICT.put("Glorious Model D Wireless", new FallbackProductInfo("Glorious Model D Wireless", "Glorious", "Chuột", "2190000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
         FALLBACK_DICT.put("Logitech Pebble M350 Silent", new FallbackProductInfo("Logitech Pebble M350 Silent", "Logitech", "Chuột", "350000", "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"));
         FALLBACK_DICT.put("Razer DeathAdder Essential Wired", new FallbackProductInfo("Razer DeathAdder Essential Wired", "Razer", "Chuột", "390000", "https://images.unsplash.com/photo-1625600243103-1dc6824c6c8a?w=500"));
     }
