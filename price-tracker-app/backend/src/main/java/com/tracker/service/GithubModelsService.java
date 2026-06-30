@@ -147,7 +147,7 @@ public class GithubModelsService {
         return md.trim();
     }
 
-    public ExtractedProductDetails extractProductDetails(String rawMarkdown) {
+    public ExtractedProductDetails extractProductDetails(String rawMarkdown, String ogImage) {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
@@ -159,7 +159,7 @@ public class GithubModelsService {
                     "- \"productName\": The full, precise name of the product including specifications (e.g. \"iPhone 16 Pro Max 256GB\").\n" +
                     "- \"currentPrice\": The current selling price as a decimal number (no commas, dots, or currency symbols, e.g. 30990000).\n" +
                     "- \"originalPrice\": The list price or original price before discount. If not present or same as current price, make it equal to currentPrice.\n" +
-                    "- \"imageUrl\": The main image URL of the product.\n" +
+                    "- \"imageUrl\": The main image URL of the product. If an Open Graph Image (og:image) is provided in the prompt, use it as the imageUrl.\n" +
                     "- \"inStock\": boolean (true if in stock, false if out of stock/ngừng kinh doanh).\n" +
                     "Do not use markdown code block formatting in your response. Output only the raw JSON.";
 
@@ -169,7 +169,11 @@ public class GithubModelsService {
                 truncatedMarkdown = truncatedMarkdown.substring(0, 25000);
             }
 
-            String userPrompt = String.format("Webpage Markdown:\n%s", truncatedMarkdown);
+            String ogImageHint = (ogImage != null && !ogImage.isEmpty())
+                ? "\nOpen Graph Image (og:image) from page metadata: " + ogImage
+                : "";
+
+            String userPrompt = String.format("Webpage Markdown:\n%s%s", truncatedMarkdown, ogImageHint);
 
             Map<String, Object> requestBody = new HashMap<>();
             requestBody.put("model", modelName);

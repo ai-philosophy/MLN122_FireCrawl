@@ -70,3 +70,9 @@ apps/api/src/lib/scrape-interact/*.md
 /firecrawl-skills/
 /firecrawl-workflows/
 /img/
+
+# Database dumps
+*.dump
+
+# Test/scratch files
+price-tracker-app/backend/test.png

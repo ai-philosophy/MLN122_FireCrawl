@@ -259,8 +259,8 @@ const PRODUCTS = [
   {
     name: "Logitech G304 Lightspeed Wireless", brand: "Logitech", category: "Chuột",
     urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-khong-day-logitech-g304.html",
-      "GearVN":             "https://gearvn.com/products/chuot-gaming-khong-day-logitech-g304-lightspeed-wireless",
+      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-khong-day-logitech-g304-lightspeed.html",
+      "GearVN":             "https://gearvn.com/products/chuot-logitech-g304-lightspeed-wireless-black",
       "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-logitech-g304-lightspeed",
       "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-logitech-g304-lightspeed.html"
     }
@@ -549,8 +549,9 @@ async function scrapeProduct(target) {
 
     if (result.success) {
       const md = result.markdown || result.data?.markdown || '';
+      const ogImage = result.metadata?.ogImage || result.data?.metadata?.ogImage || null;
       if (md.length > 500) {
-        return md;
+        return { markdown: md, ogImage };
       }
       console.warn(`  ⚠️  Nội dung quá ngắn (${md.length} chars), có thể bị block`);
       return null;
@@ -612,20 +613,21 @@ async function runScraper() {
     const target = SCRAPE_TARGETS[i];
     console.log(`\n[${i + 1}/${SCRAPE_TARGETS.length}] ${target.merchantName} — ${target.brand} — ${target.category}`);
 
-    const markdown = await scrapeProduct(target);
+    const result = await scrapeProduct(target);
 
-    if (markdown === 'PRODUCT_NOT_FOUND_404') {
+    if (result === 'PRODUCT_NOT_FOUND_404') {
       console.log(`  🗑️  Yêu cầu backend xóa offer lỗi (404)`);
       await deleteOfferFromBackend(target.merchantName, target.targetProductName);
       skipCount++;
-    } else if (!markdown) {
+    } else if (!result) {
       console.log(`  ⏭️  Bỏ qua (không có content)`);
       skipCount++;
     } else {
       const payload = {
         merchantName: target.merchantName,
         originalUrl: target.url,
-        rawMarkdown: markdown,
+        rawMarkdown: result.markdown,
+        ogImage: result.ogImage,
         brand: target.brand,
         category: target.category,
         targetProductName: target.targetProductName

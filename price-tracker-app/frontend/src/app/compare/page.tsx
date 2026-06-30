@@ -6,6 +6,7 @@ import {
   ArrowLeftRight, Search, Plus, X, ChevronDown, Award,
   ExternalLink, TrendingDown, Store, BarChart2, ArrowRight, Smartphone
 } from 'lucide-react';
+import ProductImage from '@/components/ProductImage';
 
 const BACKEND = 'http://localhost:8080';
 
@@ -158,7 +159,7 @@ export default function ComparePage() {
             <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Sản phẩm:</span>
             {selected.map(p => (
               <div key={p.id} className="flex items-center gap-2 bg-violet-50/80 hover:bg-violet-100/50 border border-violet-100 rounded-full pl-3 pr-2 py-1 transition-all">
-                {p.imageUrl && <img src={p.imageUrl} alt="" className="w-5 h-5 object-contain" />}
+                <ProductImage src={p.imageUrl} alt="" category={p.category} className="w-5 h-5 object-contain" iconSize={12} />
                 <span className="text-xs font-bold text-violet-900 max-w-[120px] truncate">{p.name}</span>
                 <button 
                   onClick={() => removeProduct(p.id)} 
@@ -199,15 +200,9 @@ export default function ComparePage() {
                         onClick={() => addProduct(p.id)} 
                         className="w-full text-left px-4 py-3 flex items-center gap-3 hover:bg-violet-50/50 cursor-pointer transition-all duration-150 group"
                       >
-                        {p.imageUrl ? (
-                          <div className="w-9 h-9 rounded-lg bg-slate-50 p-1 border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <img src={p.imageUrl} alt="" className="max-w-full max-h-full object-contain" />
-                          </div>
-                        ) : (
-                          <div className="w-9 h-9 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 text-slate-300">
-                            <Smartphone size={16} />
-                          </div>
-                        )}
+                        <div className="w-9 h-9 rounded-lg bg-slate-50 p-1 border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                          <ProductImage src={p.imageUrl} alt="" category={p.category} className="max-w-full max-h-full object-contain" iconSize={16} />
+                        </div>
                         <div className="min-w-0 flex-1">
                           <div className="text-xs font-bold text-slate-800 truncate group-hover:text-violet-700 transition-colors">
                             {p.name}
@@ -268,11 +263,7 @@ export default function ComparePage() {
                     onClick={() => addProduct(p.id)} 
                     className="w-full text-left px-4 py-3 flex items-center gap-3 hover:bg-violet-50/50 cursor-pointer transition-colors border-b border-slate-50 last:border-0"
                   >
-                    {p.imageUrl ? (
-                      <img src={p.imageUrl} alt="" className="w-8 h-8 object-contain" />
-                    ) : (
-                      <Smartphone size={16} className="text-slate-300" />
-                    )}
+                    <ProductImage src={p.imageUrl} alt="" category={p.category} className="w-8 h-8 object-contain" iconSize={16} />
                     <div className="min-w-0 flex-1">
                       <div className="text-xs font-bold text-slate-800 truncate">{p.name}</div>
                       <div className="text-[10px] text-slate-400 mt-0.5">{p.brand} · {p.category}</div>
@@ -328,11 +319,7 @@ export default function ComparePage() {
                   {/* Product Header */}
                   <div className="flex flex-col items-center text-center mb-6">
                     <div className="relative w-28 h-28 bg-slate-50 border border-slate-100 rounded-2xl p-3 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-300 shadow-inner">
-                      {p.imageUrl ? (
-                        <img src={p.imageUrl} alt={p.name} className="max-h-full max-w-full object-contain" />
-                      ) : (
-                        <Smartphone size={40} className="text-slate-300" />
-                      )}
+                      <ProductImage src={p.imageUrl} alt={p.name} category={p.category} className="max-h-full max-w-full object-contain" iconSize={56} />
                     </div>
                     <span className="text-[10px] font-bold text-violet-600 bg-violet-50 border border-violet-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
                       {p.brand}
@@ -492,11 +479,7 @@ export default function ComparePage() {
                         onClick={() => addProduct(p.id)} 
                         className="w-full text-left px-3 py-2 flex items-center gap-2 hover:bg-violet-50/50 cursor-pointer transition-colors"
                       >
-                        {p.imageUrl ? (
-                          <img src={p.imageUrl} alt="" className="w-7 h-7 object-contain" />
-                        ) : (
-                          <Smartphone size={14} className="text-slate-350" />
-                        )}
+                        <ProductImage src={p.imageUrl} alt="" category={p.category} className="w-7 h-7 object-contain" iconSize={14} />
                         <div className="min-w-0 flex-1">
                           <div className="text-xs font-bold text-slate-850 truncate">{p.name}</div>
                           <div className="text-[9px] text-slate-400 mt-0.5">{p.brand}</div>

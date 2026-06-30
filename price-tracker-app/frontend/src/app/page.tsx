@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Search, ShoppingBag, Smartphone, Mouse, SlidersHorizontal, Tag, Star, ArrowRight, Store } from 'lucide-react';
+import ProductImage from '../components/ProductImage';
 
 interface Product {
   id: number;
@@ -45,16 +46,13 @@ function ProductCard({ product }: { product: Product }) {
           height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center',
           padding: 20, position: 'relative',
         }}>
-          {product.imageUrl ? (
-            <img src={product.imageUrl} alt={product.name}
-              style={{ maxHeight: 140, maxWidth: '100%', objectFit: 'contain' }} />
-          ) : (
-            <div style={{ color: '#c4b5fd', opacity: 0.6 }}>
-              {product.category === 'Điện thoại'
-                ? <Smartphone size={64} strokeWidth={1} />
-                : <Mouse size={64} strokeWidth={1} />}
-            </div>
-          )}
+          <ProductImage
+            src={product.imageUrl}
+            alt={product.name}
+            category={product.category}
+            iconSize={64}
+            style={{ maxHeight: 140, maxWidth: '100%', objectFit: 'contain' }}
+          />
           {/* Category badge */}
           <span style={{
             position: 'absolute', top: 12, left: 12,

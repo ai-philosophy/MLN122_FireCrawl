@@ -8,6 +8,7 @@ import {
   ShoppingBag, Smartphone, Mouse, Store, TrendingDown, TrendingUp, ArrowLeftRight
 } from 'lucide-react';
 import PriceHistoryChart from '@/components/PriceHistoryChart';
+import ProductImage from '@/components/ProductImage';
 
 const BACKEND = 'http://localhost:8080';
 
@@ -129,14 +130,13 @@ export default function ProductDetailPage() {
             borderRadius: 20, padding: 32, border: '1px solid rgba(124,58,237,0.15)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 260,
           }}>
-            {product.imageUrl ? (
-              <img src={product.imageUrl} alt={product.name}
-                style={{ maxHeight: 220, maxWidth: '100%', objectFit: 'contain' }} />
-            ) : (
-              <div style={{ color: '#c4b5fd', opacity: 0.5 }}>
-                {product.category === 'Điện thoại' ? <Smartphone size={80} strokeWidth={1} /> : <Mouse size={80} strokeWidth={1} />}
-              </div>
-            )}
+            <ProductImage
+              src={product.imageUrl}
+              alt={product.name}
+              category={product.category}
+              iconSize={80}
+              style={{ maxHeight: 220, maxWidth: '100%', objectFit: 'contain' }}
+            />
           </div>
 
           {/* Info card */}
