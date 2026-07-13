@@ -512,7 +512,7 @@ async function checkUrlStatus(url) {
 
 async function deleteOfferFromBackend(merchantName, targetProductName) {
   try {
-    const deleteUrl = `${BACKEND_INGEST_URL.replace('/offers/ingest', '/tracker/offers')}?merchantName=${encodeURIComponent(merchantName)}&targetProductName=${encodeURIComponent(targetProductName)}`;
+    const deleteUrl = `${BACKEND_INGEST_URL.replace('/offers/ingest', '/offers')}?merchantName=${encodeURIComponent(merchantName)}&targetProductName=${encodeURIComponent(targetProductName)}`;
     const res = await fetch(deleteUrl, {
       method: 'DELETE'
     });
@@ -634,12 +634,12 @@ async function runScraper() {
       };
 
       console.log(`  📦 Gửi backend...`);
-      const result = await sendToBackend(payload);
-      if (result.success) {
-        if (result.isFallback) successFallback++;
+      const backendRes = await sendToBackend(payload);
+      if (backendRes.success) {
+        if (backendRes.isFallback) successFallback++;
         else successReal++;
       } else {
-        if (result.is404) {
+        if (backendRes.is404) {
           skipCount++;
         } else {
           failCount++;
