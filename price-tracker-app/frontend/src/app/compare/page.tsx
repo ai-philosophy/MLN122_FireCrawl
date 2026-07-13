@@ -7,8 +7,7 @@ import {
   ExternalLink, TrendingDown, Store, BarChart2, ArrowRight, Smartphone
 } from 'lucide-react';
 import ProductImage from '@/components/ProductImage';
-
-const BACKEND = 'http://localhost:8080';
+import { API_URL } from '@/lib/config';
 
 interface Product {
   id: number;
@@ -72,7 +71,7 @@ export default function ComparePage() {
 
   // Load all products for search
   useEffect(() => {
-    fetch(`${BACKEND}/api/tracker/products/search?query=`)
+    fetch(`${API_URL}/api/tracker/products/search?query=`)
       .then(r => r.json())
       .then(setAllProducts)
       .catch(() => {});
@@ -82,7 +81,7 @@ export default function ComparePage() {
   const loadDetail = useCallback(async (id: number) => {
     if (productDetails.has(id)) return;
     try {
-      const res = await fetch(`${BACKEND}/api/tracker/products/${id}`);
+      const res = await fetch(`${API_URL}/api/tracker/products/${id}`);
       if (!res.ok) return;
       const data: ProductDetails = await res.json();
       setProductDetails(prev => new Map(prev).set(id, data));

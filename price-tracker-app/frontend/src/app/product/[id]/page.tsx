@@ -9,8 +9,7 @@ import {
 } from 'lucide-react';
 import PriceHistoryChart from '@/components/PriceHistoryChart';
 import ProductImage from '@/components/ProductImage';
-
-const BACKEND = 'http://localhost:8080';
+import { API_URL } from '@/lib/config';
 
 interface MerchantOffer {
   merchantName: string;
@@ -68,7 +67,7 @@ export default function ProductDetailPage() {
     if (!id) return;
     (async () => {
       try {
-        const res = await fetch(`${BACKEND}/api/tracker/products/${id}`);
+        const res = await fetch(`${API_URL}/api/tracker/products/${id}`);
         if (!res.ok) throw new Error();
         setProduct(await res.json());
       } catch {
@@ -400,7 +399,7 @@ export default function ProductDetailPage() {
             <h2 style={{ fontSize: 15, fontWeight: 800, color: '#1e1b4b', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
               <TrendingUp size={16} color="#7c3aed" /> Lịch sử giá
             </h2>
-            <PriceHistoryChart productId={product.id} backendUrl={BACKEND} />
+            <PriceHistoryChart productId={product.id} />
           </div>
         </div>
       </div>

@@ -1,0 +1,89 @@
+services:
+  database:
+    container_name: price-tracker-database
+    image: postgres:latest
+    restart: on-failure:5
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASS}
+      POSTGRES_DB: ${PG_DB}
+    volumes:
+      - database:/var/lib/postgresql
+    networks:
+      - internal
+  dbx:
+    container_name: price-tracker-dbx
+    image: t8y2/dbx
+    restart: on-failure:5
+    volumes:
+      - dbx:/app/data
+    networks:
+      - internal
+
+  backend:
+    container_name: price-tracker-backend
+    build:
+      context: ./price-tracker-app/backend
+    image: price-tracker-backend:latest
+    restart: on-failure:5
+    environment:
+      GITHUB_MODELS_TOKEN: ${GITHUB_MODELS_TOKEN}
+      DB_URL: "jdbc:postgresql://database:5432/${PG_DB}"
+      DB_USERNAME: ${PG_USER}
+      DB_PASSWORD: ${PG_PASS}
+    depends_on:
+      - database
+    networks:
+      - internal
+
+  scraper:
+    container_name: price-tracker-scraper
+    build:
+      context: ./price-tracker-app/scraper
+    image: price-tracker-scraper:latest
+    restart: on-failure:5
+    environment:
+      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY}
+      FIRECRAWL_API_URL: ${FIRECRAWL_API_URL}
+      BACKEND_INGEST_URL: http://backend:8080/api/tracker/offers/ingest
+    depends_on:
+      - backend
+    networks:
+      - internal
+
+
+  frontend:
+    container_name: price-tracker-frontend
+    build:
+      context: ./price-tracker-app/frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${API_URL}
+    image: price-tracker-frontend:latest
+    restart: on-failure:5
+    depends_on:
+      - backend
+    networks:
+      - internal
+
+  cloudflare-tunnel:
+    container_name: price-tracker-cloudflare
+    image: cloudflare/cloudflared
+    restart: on-failure:5
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    networks:
+      - internal
+
+volumes:
+  database:
+    name: price-tracker-database
+    external: true
+  dbx:
+    name: snote-dbx
+    external: true
+
+networks:
+  internal:
+    name: price-tracker
+    external: true

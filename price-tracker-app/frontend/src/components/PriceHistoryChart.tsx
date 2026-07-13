@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+import { API_URL } from '@/lib/config';
 
 interface HistoryPoint {
   price: number;
@@ -60,7 +61,7 @@ const getDotRadius = (index: number) => {
   return Math.max(3, 6.5 - index * 1.5);
 };
 
-export default function PriceHistoryChart({ productId, backendUrl = 'http://localhost:8080' }: PriceHistoryChartProps) {
+export default function PriceHistoryChart({ productId, backendUrl = API_URL }: PriceHistoryChartProps) {
   const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
   const [merchants, setMerchants] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
