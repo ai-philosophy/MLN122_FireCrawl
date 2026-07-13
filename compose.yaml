@@ -30,7 +30,7 @@ services:
       GITHUB_MODELS_TOKEN: ${GITHUB_MODELS_TOKEN}
       DB_URL: "jdbc:postgresql://database:5432/${PG_DB}"
       DB_USERNAME: ${PG_USER}
-      DB_PASS: ${PG_PASS}
+      DB_PASSWORD: ${PG_PASS}
     depends_on:
       - database
     networks:
