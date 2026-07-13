@@ -80,7 +80,7 @@ volumes:
     name: price-tracker-database
     external: true
   dbx:
-    name: snote-dbx
+    name: price-tracker-dbx
     external: true
 
 networks:
