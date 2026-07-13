@@ -15,7 +15,7 @@ jobs:
       PG_USER: ${{ secrets.PG_USER }}
       PG_PASS: ${{ secrets.PG_PASS }}
       PG_DB: ${{ secrets.PG_DB }}
-      GITHUB_MODELS_TOKEN: ${{ secrets.GITHUB_MODELS_TOKEN }}
+      GITHUB_MODELS_TOKEN: ${{ secrets._GITHUB_MODELS_TOKEN }}
       FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
       FIRECRAWL_API_URL: ${{ secrets.FIRECRAWL_API_URL }}
       API_URL: ${{ secrets.API_URL }}
