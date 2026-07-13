@@ -399,7 +399,7 @@ export default function ProductDetailPage() {
             <h2 style={{ fontSize: 15, fontWeight: 800, color: '#1e1b4b', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8 }}>
               <TrendingUp size={16} color="#7c3aed" /> Lịch sử giá
             </h2>
-            <PriceHistoryChart productId={product.id} backendUrl={BACKEND} />
+            <PriceHistoryChart productId={product.id} />
           </div>
         </div>
       </div>
