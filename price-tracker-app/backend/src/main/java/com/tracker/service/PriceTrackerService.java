@@ -182,7 +182,7 @@ public class PriceTrackerService {
         // 1. Try AI Extraction
         try {
             extracted = githubModelsService.extractProductDetails(rawDto.getRawMarkdown(), rawDto.getOgImage());
-            if (extracted != null && extracted.getError() == null) {
+            if (extracted != null && extracted.getError() == null && extracted.getCurrentPrice() != null && extracted.getCurrentPrice().compareTo(java.math.BigDecimal.ZERO) > 0) {
                 System.out.println("✅ AI Extraction succeeded for " + rawDto.getTargetProductName());
             } else {
                 if (extracted != null && "not_found".equals(extracted.getError())) {
