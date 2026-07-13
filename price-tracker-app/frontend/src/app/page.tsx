@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Search, ShoppingBag, Smartphone, Mouse, SlidersHorizontal, Tag, Star, ArrowRight, Store } from 'lucide-react';
 import ProductImage from '../components/ProductImage';
+import { API_URL } from '@/lib/config';
 
 interface Product {
   id: number;
@@ -15,8 +16,6 @@ interface Product {
   highestPrice?: number;
   offerCount?: number;
 }
-
-const BACKEND = 'http://localhost:8080';
 
 const CATEGORIES = ['Tất cả', 'Điện thoại', 'Chuột'];
 const BRANDS_PHONE = ['Tất cả', 'Apple', 'Samsung', 'Xiaomi', 'Oppo', 'Realme', 'Asus', 'Vivo', 'OnePlus'];
@@ -133,14 +132,14 @@ export default function HomePage() {
   const fetchProducts = useCallback(async (q: string) => {
     try {
       setLoading(true);
-      const res = await fetch(`${BACKEND}/api/tracker/products/search?query=${encodeURIComponent(q)}`);
+      const res = await fetch(`${API_URL}/api/tracker/products/search?query=${encodeURIComponent(q)}`);
       if (!res.ok) throw new Error();
       const data: Product[] = await res.json();
 
       // Enrich with price data
       const enriched = await Promise.all(data.map(async (p) => {
         try {
-          const r = await fetch(`${BACKEND}/api/tracker/products/${p.id}`);
+          const r = await fetch(`${API_URL}/api/tracker/products/${p.id}`);
           if (!r.ok) return p;
           const detail = await r.json();
           const prices = (detail.offers || []).map((o: any) => o.currentPrice).filter(Boolean);

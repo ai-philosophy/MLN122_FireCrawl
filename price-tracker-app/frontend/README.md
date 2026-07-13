@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 First, run the development server:
 
 ```bash
+cp .env.example .env.local
 npm run dev
 # or
 yarn dev
@@ -13,6 +14,8 @@ pnpm dev
 # or
 bun dev
 ```
+
+Set `NEXT_PUBLIC_API_URL` before building or running the frontend. Next.js inlines this value into client bundles at build time.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
