@@ -12,4 +12,4 @@ COPY . .
 
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "scraper.js" ]
+ENTRYPOINT [ "bun", "run", "scheduler.js" ]
