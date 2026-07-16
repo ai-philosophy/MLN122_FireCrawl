@@ -13,8 +13,8 @@ import path from 'path';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 console.log('🕐 Scheduler đang chạy...');
-console.log('📅 Lịch: Mỗi ngày lúc 02:00 AM');
-console.log('   (Cron expression: 0 2 * * *)\n');
+console.log('📅 Lịch: Mỗi ngày lúc 00:00 AM (nửa đêm)');
+console.log('   (Cron expression: 0 0 * * *)\n');
 
 // Chạy ngay một lần khi khởi động để test
 console.log('▶️  Chạy lần đầu tiên ngay bây giờ...\n');
@@ -24,8 +24,8 @@ try {
   console.error('❌ Lỗi khi chạy scraper lần đầu:', err.message);
 }
 
-// Lập lịch cào tự động mỗi ngày lúc 02:00 AM
-cron.schedule('0 2 * * *', () => {
+// Lập lịch cào tự động mỗi ngày lúc 00:00 AM
+cron.schedule('0 0 * * *', () => {
   const now = new Date().toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' });
   console.log(`\n⏰ [${now}] Bắt đầu cào dữ liệu theo lịch...`);
   

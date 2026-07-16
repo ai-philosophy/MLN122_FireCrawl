@@ -266,30 +266,16 @@ const PRODUCTS = [
     }
   },
   {
-    name: "Logitech G502 Hero High Performance", brand: "Logitech", category: "Chuột",
+    name: "Logitech G502 X Corded", brand: "Logitech", category: "Chuột",
     urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-logitech-g502-hero.html",
-      "GearVN":             "https://gearvn.com/products/chuot-logitech-g502-hero",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-gaming-logitech-g502-hero",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-co-day-logitech-g502-hero.html"
-    }
-  },
-  {
-    name: "Logitech G502 X Plus Wireless", brand: "Logitech", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-logitech-g502-x-plus-wireless.html",
-      "GearVN":             "https://gearvn.com/products/chuot-logitech-g502-x-plus-wireless",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-logitech-g502-x-plus-lightspeed",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-logitech-g502-x-plus-lightspeed.html"
+      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-logitech-g502-x-corded.html"
     }
   },
   {
     name: "Logitech G Pro X Superlight 2", brand: "Logitech", category: "Chuột",
     urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-logitech-g-pro-x-superlight-2.html",
-      "GearVN":             "https://gearvn.com/products/chuot-logitech-g-pro-x-superlight-2-wireless-black",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-logitech-g-pro-x-superlight-2",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-logitech-g-pro-x-superlight-2.html"
+      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-logitech-pro-x-superlight-2-lightspeed.html",
+      "GearVN":             "https://gearvn.com/products/chuot-logitech-g-pro-x-superlight-2-black"
     }
   },
   {
@@ -302,46 +288,17 @@ const PRODUCTS = [
     }
   },
   {
-    name: "Razer DeathAdder V3 Pro Wireless", brand: "Razer", category: "Chuột",
+    name: "Razer Basilisk V3", brand: "Razer", category: "Chuột",
     urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-deathadder-v3-pro.html",
-      "GearVN":             "https://gearvn.com/products/chuot-razer-deathadder-v3-pro-wireless-black",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-razer-deathadder-v3-pro",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-razer-deathadder-v3-pro.html"
-    }
-  },
-  {
-    name: "Razer Basilisk V3 Pro Wireless", brand: "Razer", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-basilisk-v3-pro-wireless.html",
-      "GearVN":             "https://gearvn.com/products/chuot-razer-basilisk-v3-pro-wireless",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-razer-basilisk-v3-pro",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-razer-basilisk-v3-pro.html"
-    }
-  },
-  {
-    name: "Razer Viper V3 HyperSpeed Wireless", brand: "Razer", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-viper-v3-hyperspeed.html",
-      "GearVN":             "https://gearvn.com/products/chuot-razer-viper-v3-hyperspeed-wireless",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-razer-viper-v3-hyperspeed",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-razer-viper-v3-hyperspeed.html"
-    }
-  },
-  {
-    name: "Razer Orochi V2 Mobile Wireless", brand: "Razer", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-orochi-v2.html",
-      "GearVN":             "https://gearvn.com/products/chuot-razer-orochi-v2-wireless-black",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-razer-orochi-v2",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-razer-orochi-v2.html"
+      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-basilisk-v3.html",
+      "GearVN":             "https://gearvn.com/products/chuot-razer-basilisk-v3"
     }
   },
   {
     name: "Razer Cobra Pro Wireless", brand: "Razer", category: "Chuột",
     urls: {
       "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-razer-cobra-pro-wireless.html",
-      "GearVN":             "https://gearvn.com/products/chuot-razer-cobra-pro-wireless",
+      "GearVN":             "https://gearvn.com/products/chuot-razer-cobra-pro",
       "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-razer-cobra-pro",
       "PhuCanh":            "https://www.phucanh.vn/chuot-khong-day-razer-cobra-pro.html"
     }
@@ -410,39 +367,12 @@ const PRODUCTS = [
     }
   },
   {
-    name: "Asus ROG Harpe Ace Aim Lab", brand: "Asus", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-asus-rog-harpe-ace-aim-lab.html",
-      "GearVN":             "https://gearvn.com/products/chuot-gaming-khong-day-asus-rog-harpe-ace-aim-lab-edition",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-asus-rog-harpe-ace",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-gaming-asus-rog-harpe-ace.html"
-    }
-  },
-  {
     name: "Asus TUF Gaming M3 Gen II", brand: "Asus", category: "Chuột",
     urls: {
       "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-asus-tuf-gaming-m3-gen-ii.html",
       "GearVN":             "https://gearvn.com/products/chuot-asus-tuf-gaming-m3-gen-ii",
       "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-gaming-asus-tuf-gaming-m3",
       "PhuCanh":            "https://www.phucanh.vn/chuot-gaming-asus-tuf-gaming-m3-gen-ii.html"
-    }
-  },
-  {
-    name: "Dareu EM901X RGB Wireless", brand: "Dareu", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-khong-day-dareu-em901x.html",
-      "GearVN":             "https://gearvn.com/products/chuot-dareu-em901x-rgb-wireless-black",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-dareu-em901x",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-gaming-khong-day-dareu-em901x.html"
-    }
-  },
-  {
-    name: "Dareu A950 Alcantara Tri-mode", brand: "Dareu", category: "Chuột",
-    urls: {
-      "CellphoneS":         "https://cellphones.com.vn/chuot-gaming-khong-day-dareu-a950.html",
-      "GearVN":             "https://gearvn.com/products/chuot-gaming-dareu-a950-wireless-docking-charger-black",
-      "Tin Học Ngôi Sao":   "https://tinhocngoisao.com/products/chuot-khong-day-dareu-a950",
-      "PhuCanh":            "https://www.phucanh.vn/chuot-gaming-dareu-a950.html"
     }
   },
   {

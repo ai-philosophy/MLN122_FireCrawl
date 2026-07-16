@@ -23,9 +23,7 @@ const BRANDS_MOUSE = ['Tất cả', 'Logitech', 'Razer', 'Corsair', 'SteelSeries
 
 function formatVND(n: number) {
   if (!n) return '—';
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace('.0', '') + ' tr₫';
-  if (n >= 1_000) return (n / 1_000).toFixed(0) + 'k₫';
-  return n + '₫';
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(n);
 }
 
 function ProductCard({ product }: { product: Product }) {
@@ -87,21 +85,18 @@ function ProductCard({ product }: { product: Product }) {
           </h3>
 
           {/* Price range */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-            <div>
-              <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 600, marginBottom: 2 }}>GIÁ TỪ</div>
-              <div style={{ fontSize: 16, fontWeight: 800, color: '#7c3aed' }}>
-                {product.lowestPrice ? formatVND(product.lowestPrice) : '—'}
-              </div>
+          <div style={{ marginBottom: 12 }}>
+            <div style={{ fontSize: 9, color: '#9ca3af', fontWeight: 700, marginBottom: 2, letterSpacing: '0.04em' }}>GIÁ TỪ</div>
+            <div style={{ fontSize: 18, fontWeight: 800, color: '#7c3aed', marginBottom: 6, lineHeight: 1.2 }}>
+              {product.lowestPrice ? formatVND(product.lowestPrice) : '—'}
             </div>
             {product.offerCount && product.offerCount > 0 && (
               <div style={{
-                display: 'flex', alignItems: 'center', gap: 4,
-                background: '#f5f3ff', padding: '4px 10px', borderRadius: 99,
-                fontSize: 11, fontWeight: 600, color: '#6d28d9',
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                fontSize: 11, fontWeight: 600, color: '#6b7280',
               }}>
-                <Store size={12} />
-                {product.offerCount} nền tảng
+                <Store size={12} color="#7c3aed" style={{ flexShrink: 0 }} />
+                <span>So sánh tại {product.offerCount} cửa hàng</span>
               </div>
             )}
           </div>
