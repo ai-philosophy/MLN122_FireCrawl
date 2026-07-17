@@ -10,7 +10,16 @@ import {
 import PriceHistoryChart from '@/components/PriceHistoryChart';
 import ProductImage from '@/components/ProductImage';
 
-const BACKEND = 'http://localhost:8080';
+const getBackendUrl = () => {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname === 'price-tracker.eraidev.id.vn') {
+      return 'https://price-tracker-api.eraidev.id.vn';
+    }
+  }
+  return 'http://localhost:8080';
+};
+const BACKEND = getBackendUrl();
 
 interface MerchantOffer {
   merchantName: string;

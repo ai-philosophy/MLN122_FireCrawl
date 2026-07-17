@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  price_tracker_db:
+    image: postgres:17-alpine
+    container_name: price_tracker_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-123456}
+      POSTGRES_DB: price_tracker
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d price_tracker"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  price_tracker_be:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: price_tracker_be
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:postgresql://price_tracker_db:5432/price_tracker
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=${DB_PASSWORD:-123456}
+      - GITHUB_MODELS_TOKEN=${GITHUB_MODELS_TOKEN}
+      - GITHUB_MODELS_MODEL_NAME=${GITHUB_MODELS_MODEL_NAME:-gpt-4o}
+    depends_on:
+      price_tracker_db:
+        condition: service_healthy
+    restart: always
+
+  price_tracker_fe:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: price_tracker_fe
+    ports:
+      - "3000:3000"
+    depends_on:
+      - price_tracker_be
+    restart: always
+
+volumes:
+  pgdata:

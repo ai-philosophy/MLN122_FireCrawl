@@ -16,7 +16,16 @@ interface Product {
   offerCount?: number;
 }
 
-const BACKEND = 'http://localhost:8080';
+const getBackendUrl = () => {
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    if (hostname === 'price-tracker.eraidev.id.vn') {
+      return 'https://price-tracker-api.eraidev.id.vn';
+    }
+  }
+  return 'http://localhost:8080';
+};
+const BACKEND = getBackendUrl();
 
 const CATEGORIES = ['Tất cả', 'Điện thoại', 'Chuột'];
 const BRANDS_PHONE = ['Tất cả', 'Apple', 'Samsung', 'Xiaomi', 'Oppo', 'Realme', 'Asus', 'Vivo', 'OnePlus'];
